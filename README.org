@@ -1,0 +1,46 @@
+#+TITLE: Bitcoin core installation
+#+OPTIONS: ^:nil
+#+PROPERTY: header-args:sh :session *shell bitcoin-core-installation sh* :results silent raw
+
+** System environment
+
+
+- CentOS Linux release 8.1.1911 (Core)
+
+- Bitcoin Core 0.20.0
+
+** Download bitcoin core
+
+#+BEGIN_SRC sh
+curl https://bitcoincore.org/bin/bitcoin-core-0.20.0/bitcoin-0.20.0-x86_64-linux-gnu.tar.gz > bitcoin-0.20.0-x86_64-linux-gnu.tar.gz
+#+END_SRC
+
+** Unpack archive
+
+#+BEGIN_SRC sh
+tar -xzvf bitcoin-0.20.0-x86_64-linux-gnu.tar.gz
+#+END_SRC
+
+** Configure bitcoin core
+
+Default config file location is =~/.bitcoin/bitcoin.conf=.
+
+We will use regtest and default auth.
+
+#+BEGIN_SRC conf
+regtest=1
+#+END_SRC
+
+** Runnging bitcoind
+
+With default datadir in =~/.bitcoin/=.
+
+#+BEGIN_SRC sh
+./bitcoin-0.20.0/bin/bitcoind
+#+END_SRC
+
+With custom datadir.
+
+#+BEGIN_SRC sh
+./bitcoin-0.20.0/bin/bitcoind -datadir=/data/bitcoin20
+#+END_SRC
